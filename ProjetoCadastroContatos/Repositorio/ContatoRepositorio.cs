@@ -15,6 +15,7 @@ namespace ProjetoCadastroContatos.Repositorio
         public ContatoModel Adicionar(ContatoModel contato)
         {
             //Gravando no banco de Dados
+
             _bancoContext.Contatos.Add(contato);
             _bancoContext.SaveChanges();//salvando no banco após adicionar
             return contato;
@@ -39,17 +40,14 @@ namespace ProjetoCadastroContatos.Repositorio
         public ContatoModel Editar(ContatoModel contato)
         {
             ContatoModel contatoModel=BuscarId(contato.Id);
+            
             if (contatoModel == null) throw new System.Exception("Erro na atualização do Contato");
-            contatoModel.Name=contato.Name;
-            contatoModel.Email=contato.Email;
-            contatoModel.Celular=contato.Celular;
+            contatoModel.Name = contato.Name;
+            contatoModel.Email = contato.Email;
+            contatoModel.Celular = contato.Celular;
             _bancoContext.Contatos.Update(contatoModel);
             _bancoContext.SaveChanges();
             return contatoModel;
-
-            //_bancoContext.Contatos.Update(contato); 
-            //_bancoContext.SaveChanges();
-            //return contato;
         }
 
         public List<ContatoModel> ExibirTodos()
