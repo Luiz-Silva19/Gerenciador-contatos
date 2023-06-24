@@ -10,22 +10,25 @@
 </div>
 <form asp-controller="Contato" asp-action="Update" method="post">
     <input type="hidden" asp-for="Id" />
-        <!-- comentário: hidden pra deixar oculto Passando o Id dentro do forms ele não cai na exception
-        Tudo que tiver dentro do forms, entra na controller// se usar o código comentado na controller
-        não precisa dessa linha do INPUT a cima-->
+    <!-- comentário: hidden pra deixar oculto Passando o Id dentro do forms ele não cai na exception
+    Tudo que tiver dentro do forms, entra na controller// se usar o código comentado na controller
+    não precisa dessa linha do INPUT a cima-->
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" asp-for="Name" class="form-control" placeholder="Digite o nome do contato">
+        @Html.ValidationMessageFor(x=>x.Name)
     </div>
 
     <div class="form-group">
         <label for="email">E-mail</label>
         <input type="text" asp-for="Email" class="form-control" placeholder="Digite o E-mail do contato">
+        @Html.ValidationMessageFor(x=>x.Email)
     </div>
 
     <div class="form-group">
         <label for="celular">Celular</label>
         <input type="text" asp-for="Celular" class="form-control" placeholder="Digite o Número do contato">
+        @Html.ValidationMessageFor(x=>x.Celular)
     </div>
 
     <button type="submit" class="btn btn-primary">Alterar</button>
